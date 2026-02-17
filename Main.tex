@@ -108,7 +108,8 @@ Now we can use the Hamilton equations to get the Equations of Motion as first-or
 	\dv{p_2}{t} &= -\pdv{H}{\varphi_2}\\
 	&=\frac{18(p_1p_2\sin(\Delta)(16-9\cos^2(\Delta))-6\sin(\Delta)\cos(\Delta)(p_1^2+4p_2^2-3p_1p_2\cos(\Delta)))}{ml^2(16-9\cos^2(\Delta))^2}+\frac{mgl\sin(\varphi_2)}{2}
 \end{align}
-Finally we can simulate a trajectorie of the system given initial conditions using Runge-Kutta 4 (RK4). The implementation is written in Python.
+Finally we can simulate a trajectorie of the system given initial conditions using Runge-Kutta 4 (RK4).
+\lstinputlisting[language=Python, breaklines]{ImplementationRK4.py}
 
 
 \end{document}
