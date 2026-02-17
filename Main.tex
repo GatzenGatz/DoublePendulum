@@ -3,58 +3,112 @@
 \usepackage[ngerman]{babel}
 \usepackage{inputenc}
 \usepackage[T1]{fontenc}
-
+	
 \usepackage[right=2cm, left=2cm, bottom=2cm, top=2cm]{geometry}
 
 \usepackage{amsmath, amssymb, physics}
 
-\author{Gatze :3}
+
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{keywordstyle=\color{blue},commentstyle=\color{mygreen},
+    stringstyle=\color{mymauve},rulecolor=\color{black},
+    basicstyle=\scriptsize\ttfamily,numberstyle=\tiny\color{mygray},
+    captionpos=b,
+    keepspaces=true,
+    numbers=left, numbersep=5pt, showspaces=false,showstringspaces=false,
+    showtabs=false, stepnumber=1, tabsize=2, title=\lstname}
+
+\author{Maurice-León Schwinger}
 \date{}
 \title{Lagrangian and Hamiltonian Formulations for Simulating a Double Compound Pendulum with Uniform Rods}
 
 \begin{document}
 \maketitle
 \noindent The kinetic and potential energies are given by
-\begin{align*}
+\begin{align}
 	T &= \frac{1}{2}m(\dot{x_1^2}+\dot{y_1^2}+\dot{x_2^2}+\dot{y_2^2})+\frac{1}{2}I(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
 	U &= mg(y_1+y_2)
-\end{align*}
+\end{align}
 The center of mass for each pendelum is located at its center. Thus
-\begin{align*}
+\begin{align}
 	\dot{x_1^2}+\dot{y_1^2}&=\frac{\dot{\varphi_1^2}l^2}{4}(\sin^2(\varphi_1)+\cos^2(\varphi_1))\\
 	&= \frac{\dot{\varphi_1^2}l^2}{4}\\
 	\dot{x_2^2}+\dot{y_2^2}&= l^2((\dot{\varphi_1}\cos(\varphi_1)+\frac{1}{2}\dot{\varphi_2}\cos^2(\varphi_2))+(\dot{\varphi_1}\sin(\varphi_1)+\frac{1}{2}\dot{\varphi_2}\sin^2(\varphi_2)))\\
 	&= l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1)\cos(\varphi_2)+\dot{\varphi_1}\dot{\varphi_2}\sin(\varphi_1)\sin(\varphi_2))\\
 	&= l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2))
-\end{align*}
+\end{align}
 Plugging in the coordinates with respect to the angle as well as the moment of inertia for a thin rod rotated about its axis we get
-\begin{align*}
+\begin{align}
 	T &= \frac{m}{2}\left(\frac{\dot{\varphi_1^2}l^2}{4}+l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2))\right)+\frac{1}{2}\frac{1}{12}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
 	U &= -mgl(\frac{1}{2}\cos(\varphi_1)+\cos(\varphi_1)+\frac{1}{2}\cos(\varphi_2))
-\end{align*}
+\end{align}
 The Lagrangian $L$ is given by
-\begin{align*}
+\begin{align}
 	L &= T-U\\
 	&= \frac{ml^2}{2}\left(\frac{\dot{\varphi_1^2}}{4}+\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
 	&= \frac{ml^2}{24}\left(15\dot{\varphi_1^2}+3\dot{\varphi_2^2}+12\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
-	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
-\end{align*}
+	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))
+\end{align}
 Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. But these we yield a second-order differential equation. Solving for the Equations of Motion in Hamilton mechanics is better for simulating, because you only get first-order differential equations, which can more be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
 With the generalized momenta $p=\pdv{L}{\dot{\varphi}}$ we obtain
-\begin{align*}
+\begin{align}
 	H &= p\dot{\varphi} - L
-\end{align*}
+\end{align}
 where $p$ and $\dot{\varphi}$ are 2-dimensional vectors. First we solve for the generalized momenta.
-\begin{align*}
+\begin{align}
 	p_1 &= \pdv{L}{\dot{\varphi_1}}\\
-	&= \frac{8ml^2}{6}\dot{\varphi_1}+\frac{3}{6}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\\
+	&= \frac{8ml^2}{6}\dot{\varphi_1}+\frac{3ml^2}{6}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\\
 	p_2 &= \pdv{L}{\dot{\varphi_2}}\\
-	&=  \frac{2ml^2}{6}\dot{\varphi_2}+\frac{3}{6}\dot{\varphi_1}\cos(\varphi_1-\varphi_2) 
-\end{align*}
-This can be written as
-\begin{align*}
-	a
-\end{align*}
+	&=  \frac{2ml^2}{6}\dot{\varphi_2}+\frac{3ml^2}{6}\dot{\varphi_1}\cos(\varphi_1-\varphi_2) 
+\end{align}
+With
+\begin{align}
+	K&=\begin{pmatrix}\frac{4ml^2}{3}&\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)\\\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)&\frac{ml^2}{3}\end{pmatrix}
+\end{align}
+this can be written as
+\begin{align}
+	\begin{pmatrix}p_1\\p_2\end{pmatrix}=K\begin{pmatrix}\dot{\varphi_1}\\\dot{\varphi_2}\end{pmatrix}
+\end{align}
+Since 
+\begin{align}
+	\det(K) &= m^2l^4(\frac{4}{9}-\frac{\cos^2(\varphi_1-\varphi_2)}{4})\\
+	&= m^2l^4(\frac{16-9\cos^2(\varphi_1-\varphi_2)}{36})\\
+	&\geq 0
+\end{align}
+K is invertible. The inverse matrix of a $2\cross 2$-matrix can be computed through
+\begin{align}
+	K^{-1}&=\frac{1}{m^2l^4(\frac{4}{9}-\frac{\cos^2(\varphi_1-\varphi_2)}{4})}\begin{pmatrix}\frac{ml^2}{3}&-\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)\\-\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)&\frac{4ml^2}{3}\end{pmatrix}\\
+	&=\frac{36}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}\begin{pmatrix}\frac{1}{3}&-\frac{1}{2}\cos(\varphi_1-\varphi_2)\\-\frac{1}{2}\cos(\varphi_1-\varphi_2)&\frac{4}{3}\end{pmatrix}
+\end{align}
 Because $H=T+U$ and L=$T-U$, $T=\frac{1}{2}p\dot{\varphi}$. 
+Therefore $T$ can be written as
+\begin{align}
+	T&=\frac{1}{2}pK^{-1}p
+\end{align}
+The Hamiltonian can now be written as
+\begin{align}
+	H&=\frac{1}{2}pK^{-1}p+U\\
+	&=\frac{1}{2}pK^{-1}p-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
+	&=\frac{18}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}(\frac{1}{3}p_1^2-\cos(\varphi_1-\varphi_2)p_1p_2+\frac{4}{3}p_2^2)-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
+	&=\frac{6(p_1^2-3\cos(\varphi_1-\varphi_2)p_1p_2+4p_2^2)}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))	
+\end{align}
+Now we can use the Hamilton equations to get the Equations of Motion as first-order differential equations. With $\Delta =\varphi_1-\varphi_2$\\
+\begin{align}
+	\dv{\varphi_1}{t} &= \pdv{H}{p_1}\\
+	&= \frac{6(2p_1-3\cos(\Delta)p_2)}{ml^2(16-9\cos^2(\Delta))}\\
+	\dv{\varphi_2}{t} &= \pdv{H}{p_2}\\
+	&=\frac{6(8p_2-3\cos(\Delta)p_1)}{ml^2(16-9\cos^2(\Delta))}\\
+	\dv{p_1}{t} &= -\pdv{H}{\varphi_1}\\
+	&=-\frac{18(p_1p_2\sin(\Delta)(16-9\cos^2(\Delta))-6\sin(\Delta)\cos(\Delta)(p_1^2+4p_2^2-3p_1p_2\cos(\Delta)))}{ml^2(16-9\cos^2(\Delta))^2}-\frac{3mgl\sin(\varphi_1)}{2}\\
+	\dv{p_2}{t} &= -\pdv{H}{\varphi_2}\\
+	&=\frac{18(p_1p_2\sin(\Delta)(16-9\cos^2(\Delta))-6\sin(\Delta)\cos(\Delta)(p_1^2+4p_2^2-3p_1p_2\cos(\Delta)))}{ml^2(16-9\cos^2(\Delta))^2}+\frac{mgl\sin(\varphi_2)}{2}
+\end{align}
+Finally we can simulate a trajectorie of the system given initial conditions using Runge-Kutta 4 (RK4). The implementation is written in Python.
+
 
 \end{document}
