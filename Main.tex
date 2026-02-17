@@ -4,6 +4,8 @@
 \usepackage{inputenc}
 \usepackage[T1]{fontenc}
 
+\usepackage[right=2cm, left=2cm, bottom=2cm, top=2cm]{geometry}
+
 \usepackage{amsmath, amssymb, physics}
 
 \author{Gatze :3}
@@ -12,9 +14,47 @@
 
 \begin{document}
 \maketitle
-
+\noindent The kinetic and potential energies are given by
 \begin{align*}
-T &= \frac{1}{2}m(\dot{x_1}^2+\dot{y_1}^2+\dot{x_2}^2+\dot{y_2}^2)+\frac{1}{2}I(\dot{\varphi_1}^2+\dot{\varphi_2}^2)
+	T &= \frac{1}{2}m(\dot{x_1^2}+\dot{y_1^2}+\dot{x_2^2}+\dot{y_2^2})+\frac{1}{2}I(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
+	U &= mg(y_1+y_2)
 \end{align*}
+The center of mass for each pendelum is located at its center. Thus
+\begin{align*}
+	\dot{x_1^2}+\dot{y_1^2}&=\frac{\dot{\varphi_1^2}l^2}{4}(\sin^2(\varphi_1)+\cos^2(\varphi_1))\\
+	&= \frac{\dot{\varphi_1^2}l^2}{4}\\
+	\dot{x_2^2}+\dot{y_2^2}&= l^2((\dot{\varphi_1}\cos(\varphi_1)+\frac{1}{2}\dot{\varphi_2}\cos^2(\varphi_2))+(\dot{\varphi_1}\sin(\varphi_1)+\frac{1}{2}\dot{\varphi_2}\sin^2(\varphi_2)))\\
+	&= l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1)\cos(\varphi_2)+\dot{\varphi_1}\dot{\varphi_2}\sin(\varphi_1)\sin(\varphi_2))\\
+	&= l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2))
+\end{align*}
+Plugging in the coordinates with respect to the angle as well as the moment of inertia for a thin rod rotated about its axis we get
+\begin{align*}
+	T &= \frac{m}{2}\left(\frac{\dot{\varphi_1^2}l^2}{4}+l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2))\right)+\frac{1}{2}\frac{1}{12}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
+	U &= -mgl(\frac{1}{2}\cos(\varphi_1)+\cos(\varphi_1)+\frac{1}{2}\cos(\varphi_2))
+\end{align*}
+The Lagrangian $L$ is given by
+\begin{align*}
+	L &= T-U\\
+	&= \frac{ml^2}{2}\left(\frac{\dot{\varphi_1^2}}{4}+\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
+	&= \frac{ml^2}{24}\left(15\dot{\varphi_1^2}+3\dot{\varphi_2^2}+12\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
+	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
+\end{align*}
+Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. But these we yield a second-order differential equation. Solving for the Equations of Motion in Hamilton mechanics is better for simulating, because you only get first-order differential equations, which can more be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
+With the generalized momenta $p=\pdv{L}{\dot{\varphi}}$ we obtain
+\begin{align*}
+	H &= p\dot{\varphi} - L
+\end{align*}
+where $p$ and $\dot{\varphi}$ are 2-dimensional vectors. First we solve for the generalized momenta.
+\begin{align*}
+	p_1 &= \pdv{L}{\dot{\varphi_1}}\\
+	&= \frac{8ml^2}{6}\dot{\varphi_1}+\frac{3}{6}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\\
+	p_2 &= \pdv{L}{\dot{\varphi_2}}\\
+	&=  \frac{2ml^2}{6}\dot{\varphi_2}+\frac{3}{6}\dot{\varphi_1}\cos(\varphi_1-\varphi_2) 
+\end{align*}
+This can be written as
+\begin{align*}
+	a
+\end{align*}
+Because $H=T+U$ and L=$T-U$, $T=\frac{1}{2}p\dot{\varphi}$. 
 
 \end{document}
