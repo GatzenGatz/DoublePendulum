@@ -29,7 +29,8 @@
 
 \begin{document}
 \maketitle
-\noindent The kinetic and potential energies are given by
+
+\noindent This note analyzes a double compound pendulum consisting of two rods of equal length and uniform mass distribution. The kinetic and potential energies are given by
 \begin{align}
 	T &= \frac{1}{2}m(\dot{x_1^2}+\dot{y_1^2}+\dot{x_2^2}+\dot{y_2^2})+\frac{1}{2}I(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
 	U &= mg(y_1+y_2)
@@ -54,7 +55,7 @@ The Lagrangian $L$ is given by
 	&= \frac{ml^2}{24}\left(15\dot{\varphi_1^2}+3\dot{\varphi_2^2}+12\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
 	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))
 \end{align}
-Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. But these we yield a second-order differential equation. Solving for the Equations of Motion in Hamilton mechanics is better for simulating, because you only get first-order differential equations, which can more be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
+Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. By this we would obtain two second-order differential equations. But solving for the Equations of Motion in Hamilton mechanics is better for simulating, because we only get first-order differential equations, which can more be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
 With the generalized momenta $p=\pdv{L}{\dot{\varphi}}$ we obtain
 \begin{align}
 	H &= p\dot{\varphi} - L
