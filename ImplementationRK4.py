@@ -34,5 +34,5 @@ def generate_trajectorie_rk4(f, h, n, v, param):
 
 traj = generate_trajectorie_rk4(double_pendulum, 0.01, 10000, [pi/4,pi/4,1,1], [1,1,9.81])
 print(traj)
-plt.plot(traj[:,1],traj[:,2])
+plt.plot(traj[:,0],traj[:,1])
 plt.show()
