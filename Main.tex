@@ -30,7 +30,7 @@
 \begin{document}
 \maketitle
 
-\noindent This note analyzes a double compound pendulum consisting of two rods of equal length and uniform mass distribution. All variables with 1 in the index describe the first rod, which is attached to the pivot, all variables with 2 the second, where the angles are between each rod and its respective vertical equilibrium position. The kinetic and potential energies are given by
+\noindent This note analyzes a double compound pendulum consisting of two rods of equal length and uniform mass distribution. All variables with 1 in the index describe the first rod, which is attached to the pivot, all variables with 2 the second. The angles are between each rod and its respective vertical equilibrium position. The kinetic and potential energies are given by
 \begin{align}
 	T &= \frac{1}{2}m(\dot{x_1^2}+\dot{y_1^2}+\dot{x_2^2}+\dot{y_2^2})+\frac{1}{2}I(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
 	U &= mg(y_1+y_2)
@@ -57,7 +57,7 @@ The Lagrangian $L$ is given by
 \end{align}
 Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. By this we would obtain two second-order differential equations. But solving for the Equations of Motion in Hamilton mechanics is better for simulating, because we only get first-order differential equations, which can be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
 \newpage
-With the generalized momenta $p=\pdv{L}{\dot{\varphi}}$ we obtain
+\noindent With the generalized momenta $p=\pdv{L}{\dot{\varphi}}$ we obtain
 \begin{align}
 	H &= p\dot{\varphi} - L
 \end{align}
@@ -92,7 +92,7 @@ Therefore $T$ can be written as
 \begin{align}
 	T&=\frac{1}{2}pK^{-1}p
 \end{align}
-The Hamiltonian $H=T+U$, so it can now be written as
+Here trivially the Hamiltonian $H=T+U$, so it can now be written as
 \begin{align}
 	H&=\frac{1}{2}pK^{-1}p+U\\
 	&=\frac{1}{2}pK^{-1}p-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
@@ -100,7 +100,7 @@ The Hamiltonian $H=T+U$, so it can now be written as
 	&=\frac{6(p_1^2-3\cos(\varphi_1-\varphi_2)p_1p_2+4p_2^2)}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))	
 \end{align}
 \newpage
-Now we can use the Hamilton equations to get the Equations of Motion as first-order differential equations. With $\Delta =\varphi_1-\varphi_2$
+\noindent Now we can use the Hamilton equations to get the Equations of Motion as first-order differential equations. With $\Delta =\varphi_1-\varphi_2$
 \begin{align}
 	\dv{\varphi_1}{t} &= \pdv{H}{p_1}\\
 	&= \frac{6(2p_1-3\cos(\Delta)p_2)}{ml^2(16-9\cos^2(\Delta))}\\
