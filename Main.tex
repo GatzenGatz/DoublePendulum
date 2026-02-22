@@ -56,6 +56,7 @@ The Lagrangian $L$ is given by
 	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))
 \end{align}
 Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. By this we would obtain two second-order differential equations. But solving for the Equations of Motion in Hamilton mechanics is better for simulating, because we only get first-order differential equations, which can be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
+\newpage
 With the generalized momenta $p=\pdv{L}{\dot{\varphi}}$ we obtain
 \begin{align}
 	H &= p\dot{\varphi} - L
@@ -98,7 +99,8 @@ The Hamiltonian $H=T+U$, so it can now be written as
 	&=\frac{18}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}(\frac{1}{3}p_1^2-\cos(\varphi_1-\varphi_2)p_1p_2+\frac{4}{3}p_2^2)-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
 	&=\frac{6(p_1^2-3\cos(\varphi_1-\varphi_2)p_1p_2+4p_2^2)}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))	
 \end{align}
-Now we can use the Hamilton equations to get the Equations of Motion as first-order differential equations. With $\Delta =\varphi_1-\varphi_2$\\
+\newpage
+Now we can use the Hamilton equations to get the Equations of Motion as first-order differential equations. With $\Delta =\varphi_1-\varphi_2$
 \begin{align}
 	\dv{\varphi_1}{t} &= \pdv{H}{p_1}\\
 	&= \frac{6(2p_1-3\cos(\Delta)p_2)}{ml^2(16-9\cos^2(\Delta))}\\
