@@ -32,28 +32,28 @@
 
 \noindent This note analyzes a double compound pendulum consisting of two rods of equal length and uniform mass distribution. All variables with 1 in the index describe the first rod, which is attached to the pivot, all variables with 2 the second. The angles are between each rod and its respective vertical equilibrium position. The kinetic and potential energies are given by
 \begin{align}
-	T &= \frac{1}{2}m(\dot{x_1^2}+\dot{y_1^2}+\dot{x_2^2}+\dot{y_2^2})+\frac{1}{2}I(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
-	U &= mg(y_1+y_2)
+	T &= \frac{1}{2}m\left(\dot{x_1^2}+\dot{y_1^2}+\dot{x_2^2}+\dot{y_2^2}\right)+\frac{1}{2}I\left(\dot{\varphi_1^2}+\dot{\varphi_2^2}\right)\\
+	U &= mg\left(y_1+y_2\right)
 \end{align}
 The center of mass for each pendelum is located at its center. Thus
 \begin{align}
-	\dot{x_1^2}+\dot{y_1^2}&=\frac{\dot{\varphi_1^2}l^2}{4}(\sin^2(\varphi_1)+\cos^2(\varphi_1))\\
+	\dot{x_1^2}+\dot{y_1^2}&=\frac{\dot{\varphi_1^2}l^2}{4}\left(\sin^2\left(\varphi_1\right)+\cos^2\left(\varphi_1\right)\right)\\
 	&= \frac{\dot{\varphi_1^2}l^2}{4}\\
-	\dot{x_2^2}+\dot{y_2^2}&= l^2((\dot{\varphi_1}\cos(\varphi_1)+\frac{1}{2}\dot{\varphi_2}\cos^2(\varphi_2))+(\dot{\varphi_1}\sin(\varphi_1)+\frac{1}{2}\dot{\varphi_2}\sin^2(\varphi_2)))\\
-	&= l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1)\cos(\varphi_2)+\dot{\varphi_1}\dot{\varphi_2}\sin(\varphi_1)\sin(\varphi_2))\\
-	&= l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2))
+	\dot{x_2^2}+\dot{y_2^2}&= l^2\left(\left(\dot{\varphi_1}\cos\left(\varphi_1\right)+\frac{1}{2}\dot{\varphi_2}\cos^2\left(\varphi_2\right)\right)+\left(\dot{\varphi_1}\sin\left(\varphi_1\right)+\frac{1}{2}\dot{\varphi_2}\sin^2\left(\varphi_2\right)\right)\right)\\
+	&= l^2\left(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos\left(\varphi_1\right)\cos\left(\varphi_2\right)+\dot{\varphi_1}\dot{\varphi_2}\sin\left(\varphi_1\right)\sin\left(\varphi_2\right)\right)\\
+	&= l^2\left(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos\left(\varphi_1-\varphi_2\right)\right)
 \end{align}
 Plugging in the coordinates with respect to the angle as well as the moment of inertia for a thin rod rotated about its axis we get
 \begin{align}
-	T &= \frac{m}{2}\left(\frac{\dot{\varphi_1^2}l^2}{4}+l^2(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2))\right)+\frac{1}{2}\frac{1}{12}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2})\\
-	U &= -mgl(\frac{1}{2}\cos(\varphi_1)+\cos(\varphi_1)+\frac{1}{2}\cos(\varphi_2))
+	T &= \frac{m}{2}\left(\frac{\dot{\varphi_1^2}l^2}{4}+l^2\left(\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos\left(\varphi_1-\varphi_2\right)\right)\right)+\frac{1}{2}\frac{1}{12}ml^2\left(\dot{\varphi_1^2}+\dot{\varphi_2^2}\right)\\
+	U &= -mgl\left(\frac{1}{2}\cos\left(\varphi_1\right)+\cos\left(\varphi_1\right)+\frac{1}{2}\cos\left(\varphi_2\right)\right)
 \end{align}
 The Lagrangian $L$ is given by
 \begin{align}
 	L &= T-U\\
-	&= \frac{ml^2}{2}\left(\frac{\dot{\varphi_1^2}}{4}+\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
-	&= \frac{ml^2}{24}\left(15\dot{\varphi_1^2}+3\dot{\varphi_2^2}+12\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right)+\frac{1}{24}ml^2(\dot{\varphi_1^2}+\dot{\varphi_2^2}) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
-	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\right) + \frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))
+	&= \frac{ml^2}{2}\left(\frac{\dot{\varphi_1^2}}{4}+\dot{\varphi_1^2}+\frac{1}{4}\dot{\varphi_2^2}+\dot{\varphi_1}\dot{\varphi_2}\cos\left(\varphi_1-\varphi_2\right)\right)+\frac{1}{24}ml^2\left(\dot{\varphi_1^2}+\dot{\varphi_2^2}\right) + \frac{mgl}{2}\left(3\cos\left(\varphi_1\right)+\cos\left(\varphi_2\right)\right)\\
+	&= \frac{ml^2}{24}\left(15\dot{\varphi_1^2}+3\dot{\varphi_2^2}+12\dot{\varphi_1}\dot{\varphi_2}\cos\left(\varphi_1-\varphi_2\right)\right)+\frac{1}{24}ml^2\left(\dot{\varphi_1^2}+\dot{\varphi_2^2}\right) + \frac{mgl}{2}\left(3\cos\left(\varphi_1\right)+\cos\left(\varphi_2\right)\right)\\
+	&= \frac{ml^2}{6}\left(4\dot{\varphi_1^2}+\dot{\varphi_2^2}+3\dot{\varphi_1}\dot{\varphi_2}\cos\left(\varphi_1-\varphi_2\right)\right) + \frac{mgl}{2}\left(3\cos\left(\varphi_1\right)+\cos\left(\varphi_2\right)\right)
 \end{align}
 Using the Euler-Lagrange equations we could solve for the Equations of Motion in the form of Lagrangian mechanics. By this we would obtain two second-order differential equations. But solving for the Equations of Motion in Hamilton mechanics is better for simulating, because we only get first-order differential equations, which can be solved more accurately numerically. Therefore we perform a Legendre-Transform on the Lagrangian, which turns it into the Hamiltonian.\\
 \newpage
@@ -64,13 +64,13 @@ Using the Euler-Lagrange equations we could solve for the Equations of Motion in
 where $p$ and $\dot{\varphi}$ are 2-dimensional vectors. First we solve for the generalized momenta.
 \begin{align}
 	p_1 &= \pdv{L}{\dot{\varphi_1}}\\
-	&= \frac{8ml^2}{6}\dot{\varphi_1}+\frac{3ml^2}{6}\dot{\varphi_2}\cos(\varphi_1-\varphi_2)\\
+	&= \frac{8ml^2}{6}\dot{\varphi_1}+\frac{3ml^2}{6}\dot{\varphi_2}\cos\left(\varphi_1-\varphi_2\right)\\
 	p_2 &= \pdv{L}{\dot{\varphi_2}}\\
-	&=  \frac{2ml^2}{6}\dot{\varphi_2}+\frac{3ml^2}{6}\dot{\varphi_1}\cos(\varphi_1-\varphi_2) 
+	&=  \frac{2ml^2}{6}\dot{\varphi_2}+\frac{3ml^2}{6}\dot{\varphi_1}\cos\left(\varphi_1-\varphi_2\right) 
 \end{align}
 With
 \begin{align}
-	K&=\begin{pmatrix}\frac{4ml^2}{3}&\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)\\\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)&\frac{ml^2}{3}\end{pmatrix}
+	K&=\begin{pmatrix}\frac{4ml^2}{3}&\frac{ml^2}{2}\cos\left(\varphi_1-\varphi_2\right)\\\frac{ml^2}{2}\cos\left(\varphi_1-\varphi_2\right)&\frac{ml^2}{3}\end{pmatrix}
 \end{align}
 this can be written as
 \begin{align}
@@ -78,16 +78,16 @@ this can be written as
 \end{align}
 Since 
 \begin{align}
-	\det(K) &= m^2l^4(\frac{4}{9}-\frac{\cos^2(\varphi_1-\varphi_2)}{4})\\
-	&= m^2l^4(\frac{16-9\cos^2(\varphi_1-\varphi_2)}{36})\\
+	\det\left(K\right) &= m^2l^4\left(\frac{4}{9}-\frac{\cos^2\left(\varphi_1-\varphi_2\right)}{4}\right)\\
+	&= m^2l^4\left(\frac{16-9\cos^2\left(\varphi_1-\varphi_2\right)}{36}\right)\\
 	&\geq 0
 \end{align}
-K is invertible for each $(\varphi_1, \varphi_2)$. The inverse matrix of a $2\cross 2$-matrix can be computed through
+K is invertible for each $\left(\varphi_1, \varphi_2\right)$. The inverse matrix of a $2\cross 2$-matrix can be computed through
 \begin{align}
-	K^{-1}&=\frac{1}{m^2l^4(\frac{4}{9}-\frac{\cos^2(\varphi_1-\varphi_2)}{4})}\begin{pmatrix}\frac{ml^2}{3}&-\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)\\-\frac{ml^2}{2}\cos(\varphi_1-\varphi_2)&\frac{4ml^2}{3}\end{pmatrix}\\
-	&=\frac{36}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}\begin{pmatrix}\frac{1}{3}&-\frac{1}{2}\cos(\varphi_1-\varphi_2)\\-\frac{1}{2}\cos(\varphi_1-\varphi_2)&\frac{4}{3}\end{pmatrix}
+	K^{-1}&=\frac{1}{m^2l^4\left(\frac{4}{9}-\frac{\cos^2\left(\varphi_1-\varphi_2\right)}{4}\right)}\begin{pmatrix}\frac{ml^2}{3}&-\frac{ml^2}{2}\cos\left(\varphi_1-\varphi_2\right)\\-\frac{ml^2}{2}\cos\left(\varphi_1-\varphi_2\right)&\frac{4ml^2}{3}\end{pmatrix}\\
+	&=\frac{36}{ml^2\left(16-9\cos^2\left(\varphi_1-\varphi_2\right)\right)}\begin{pmatrix}\frac{1}{3}&-\frac{1}{2}\cos\left(\varphi_1-\varphi_2\right)\\-\frac{1}{2}\cos\left(\varphi_1-\varphi_2\right)&\frac{4}{3}\end{pmatrix}
 \end{align}
-Because the kinetic energy $T$ is a homogeneous quadratic function and the potential energy doesn't depend on the velocity, so $p=\pdv{T}{\dot{\varphi}}$, $T=\frac{1}{2}p\dot{\varphi}$. 
+Because the kinetic energy $T$ is a homogeneous quadratic function and doesn't depend on time and the potential energy $U$ doesn't depend on the velocity, so $p=\pdv{T}{\dot{\varphi}}$, $T=\frac{1}{2}p\dot{\varphi}$. 
 Therefore $T$ can be written as
 \begin{align}
 	T&=\frac{1}{2}pK^{-1}p
@@ -95,21 +95,21 @@ Therefore $T$ can be written as
 Here trivially the Hamiltonian $H=T+U$, so it can now be written as
 \begin{align}
 	H&=\frac{1}{2}pK^{-1}p+U\\
-	&=\frac{1}{2}pK^{-1}p-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
-	&=\frac{18}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}(\frac{1}{3}p_1^2-\cos(\varphi_1-\varphi_2)p_1p_2+\frac{4}{3}p_2^2)-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))\\
-	&=\frac{6(p_1^2-3\cos(\varphi_1-\varphi_2)p_1p_2+4p_2^2)}{ml^2(16-9\cos^2(\varphi_1-\varphi_2))}-\frac{mgl}{2}(3\cos(\varphi_1)+\cos(\varphi_2))	
+	&=\frac{1}{2}pK^{-1}p-\frac{mgl}{2}\left(3\cos\left(\varphi_1\right)+\cos\left(\varphi_2\right)\right)\\
+	&=\frac{18}{ml^2\left(16-9\cos^2\left(\varphi_1-\varphi_2\right)\right)}\left(\frac{1}{3}p_1^2-\cos\left(\varphi_1-\varphi_2\right)p_1p_2+\frac{4}{3}p_2^2\right)-\frac{mgl}{2}\left(3\cos\left(\varphi_1\right)+\cos\left(\varphi_2\right)\right)\\
+	&=\frac{6\left(p_1^2-3\cos\left(\varphi_1-\varphi_2\right)p_1p_2+4p_2^2\right)}{ml^2\left(16-9\cos^2\left(\varphi_1-\varphi_2\right)\right)}-\frac{mgl}{2}\left(3\cos\left(\varphi_1\right)+\cos\left(\varphi_2\right)\right)	
 \end{align}
 \newpage
 \noindent Now we can use the Hamilton equations to get the Equations of Motion as first-order differential equations. With $\Delta =\varphi_1-\varphi_2$
 \begin{align}
 	\dv{\varphi_1}{t} &= \pdv{H}{p_1}\\
-	&= \frac{6(2p_1-3\cos(\Delta)p_2)}{ml^2(16-9\cos^2(\Delta))}\\
+	&= \frac{6\left(2p_1-3\cos\left(\Delta\right)p_2\right)}{ml^2\left(16-9\cos^2\left(\Delta\right)\right)}\\
 	\dv{\varphi_2}{t} &= \pdv{H}{p_2}\\
-	&=\frac{6(8p_2-3\cos(\Delta)p_1)}{ml^2(16-9\cos^2(\Delta))}\\
+	&=\frac{6\left(8p_2-3\cos\left(\Delta\right)p_1\right)}{ml^2\left(16-9\cos^2\left(\Delta\right)\right)}\\
 	\dv{p_1}{t} &= -\pdv{H}{\varphi_1}\\
-	&=-\frac{18(p_1p_2\sin(\Delta)(16-9\cos^2(\Delta))-6\sin(\Delta)\cos(\Delta)(p_1^2+4p_2^2-3p_1p_2\cos(\Delta)))}{ml^2(16-9\cos^2(\Delta))^2}-\frac{3mgl\sin(\varphi_1)}{2}\\
+	&=-\frac{18\left(p_1p_2\sin\left(\Delta\right)\left(16-9\cos^2\left(\Delta\right)\right)-6\sin\left(\Delta\right)\cos\left(\Delta\right)\left(p_1^2+4p_2^2-3p_1p_2\cos\left(\Delta\right)\right)\right)}{ml^2\left(16-9\cos^2\left(\Delta\right)\right)^2}-\frac{3mgl\sin\left(\varphi_1\right)}{2}\\
 	\dv{p_2}{t} &= -\pdv{H}{\varphi_2}\\
-	&=\frac{18(p_1p_2\sin(\Delta)(16-9\cos^2(\Delta))-6\sin(\Delta)\cos(\Delta)(p_1^2+4p_2^2-3p_1p_2\cos(\Delta)))}{ml^2(16-9\cos^2(\Delta))^2}+\frac{mgl\sin(\varphi_2)}{2}
+	&=\frac{18\left(p_1p_2\sin\left(\Delta\right)\left(16-9\cos^2\left(\Delta\right)\right)-6\sin\left(\Delta\right)\cos\left(\Delta\right)\left(p_1^2+4p_2^2-3p_1p_2\cos\left(\Delta\right)\right)\right)}{ml^2\left(16-9\cos^2\left(\Delta\right)\right)^2}+\frac{mgl\sin\left(\varphi_2\right)}{2}
 \end{align}
 Finally we can simulate a trajectorie of the system given initial conditions using Runge-Kutta 4 (RK4).
 \lstinputlisting[language=Python, breaklines]{ImplementationRK4.py}
